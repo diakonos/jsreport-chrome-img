@@ -1,7 +1,7 @@
 {
-  "name": "jsreport-chrome-pdf",
-  "version": "1.1.5",
-  "description": "jsreport recipe which is rendering pdf from html using headless chrome",
+  "name": "jsreport-chrome-img",
+  "version": "1.0.0",
+  "description": "jsreport recipe which renders image from html using headless chrome",
   "scripts": {
     "start": "jsreport-studio-start --httpPort 5488",
     "run": "npm run build && jsreport-studio-start --httpPort 5488 --run-only",
@@ -9,14 +9,15 @@
     "build": "jsreport-studio-build",
     "prepublish": "in-publish && jsreport-studio-build || not-in-publish"
   },
-  "homepage": "https://github.com/jsreport/jsreport-chrome-pdf",
+  "homepage": "https://github.com/diakonos/jsreport-chrome-img",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jsreport/jsreport-chrome-pdf.git"
+    "url": "git@github.com:diakonos/jsreport-chrome-img.git"
   },
   "keywords": [
     "jsreport",
-    "pdf"
+    "image",
+    "img"
   ],
   "standard": {
     "ignore": [
@@ -38,7 +39,7 @@
     "node.extend": "2.0.0",
     "uuid": "3.2.1"
   },
-  "author": "Jan Blaha",
+  "author": "Justin Ling",
   "devDependencies": {
     "babel-eslint": "8.2.5",
     "eslint": "4.19.1",

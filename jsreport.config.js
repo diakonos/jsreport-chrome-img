@@ -21,12 +21,12 @@ const chromeSchema = {
 }
 
 module.exports = {
-  'name': 'chrome-pdf',
+  'name': 'chrome-img',
   'main': 'lib/chrome.js',
   'optionsSchema': {
     chrome: { ...chromeSchema },
     extensions: {
-      'chrome-pdf': { ...chromeSchema }
+      'chrome-img': { ...chromeSchema }
     }
   },
   'dependencies': [ 'templates' ]
