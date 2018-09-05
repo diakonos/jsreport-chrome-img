@@ -62,14 +62,16 @@ export default class Properties extends Component {
 
     if (
       entity.__isNew &&
-      (entity.chrome == null || entity.chrome.printBackground == null)
+      (entity.chrome == null || entity.chrome.omitBackground == null)
     ) {
       entityNeedsDefault = true
     }
 
     if (entityNeedsDefault) {
       this.changeChrome(props, {
-        printBackground: true
+        fullPage: true,
+        omitBackground: false,
+        type: 'png'
       })
     }
   }
@@ -91,70 +93,23 @@ export default class Properties extends Component {
 
     return (
       <div className='properties-section'>
-        <div className='form-group'><label>scale</label>
-          <input
-            type='text' placeholder='1' value={chrome.scale || ''}
-            onChange={(v) => {
-              let scaleValue = v.target.value
-
-              if (scaleValue.trim() === '') {
-                scaleValue = null
-              }
-
-              changeChrome(this.props, { scale: scaleValue })
-            }} />
+        <div className='form-group'><label>image type</label>
+          <select value={chrome.type || 'png'} onChange={(v) => changeChrome(this.props, { type: v.target.value })}>
+            <option key='png' value='png'>png</option>
+            <option key='jpeg' value='jpeg'>jpeg</option>
+          </select>
         </div>
         <div className='form-group'>
-          <label>print background</label>
+          <label>omit background</label>
           <input
-            type='checkbox' checked={chrome.printBackground === true}
-            onChange={(v) => changeChrome(this.props, { printBackground: v.target.checked })} />
+            type='checkbox' checked={chrome.omitBackground === true}
+            onChange={(v) => changeChrome(this.props, { omitBackground: v.target.checked })} />
         </div>
         <div className='form-group'>
-          <label>landscape</label>
+          <label>print full page</label>
           <input
-            type='checkbox' checked={chrome.landscape === true}
-            onChange={(v) => changeChrome(this.props, { landscape: v.target.checked })} />
-        </div>
-        <div className='form-group'><label>pageRanges</label>
-          <input
-            type='text' placeholder='1-5, 8, 11-13' value={chrome.pageRanges || ''}
-            onChange={(v) => changeChrome(this.props, { pageRanges: v.target.value })} />
-        </div>
-        <div className='form-group'><label>format</label>
-          <input
-            type='text' placeholder='Letter' value={chrome.format || ''}
-            onChange={(v) => changeChrome(this.props, { format: v.target.value })} />
-        </div>
-        <div className='form-group'><label>width</label>
-          <input
-            type='text' placeholder='10cm' value={chrome.width || ''}
-            onChange={(v) => changeChrome(this.props, { width: v.target.value })} />
-        </div>
-        <div className='form-group'><label>height</label>
-          <input
-            type='text' placeholder='10cm' value={chrome.height || ''}
-            onChange={(v) => changeChrome(this.props, { height: v.target.value })} />
-        </div>
-        <div className='form-group'><label>margin top</label>
-          <input
-            type='text' placeholder='10cm' value={chrome.marginTop || ''}
-            onChange={(v) => changeChrome(this.props, { marginTop: v.target.value })} />
-        </div>
-        <div className='form-group'><label>margin right</label>
-          <input
-            type='text' placeholder='10cm' value={chrome.marginRight || ''}
-            onChange={(v) => changeChrome(this.props, { marginRight: v.target.value })} />
-        </div>
-        <div className='form-group'><label>margin bottom</label>
-          <input
-            type='text' placeholder='10cm' value={chrome.marginBottom || ''}
-            onChange={(v) => changeChrome(this.props, { marginBottom: v.target.value })} />
-        </div>
-        <div className='form-group'><label>margin left</label>
-          <input
-            type='text' placeholder='10cm' value={chrome.marginLeft || ''}
-            onChange={(v) => changeChrome(this.props, { marginLeft: v.target.value })} />
+            type='checkbox' checked={chrome.fullPage === true}
+            onChange={(v) => changeChrome(this.props, { fullPage: v.target.checked })} />
         </div>
         <div className='form-group'>
           <label>display header/footer</label>

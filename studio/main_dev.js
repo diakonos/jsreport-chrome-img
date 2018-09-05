@@ -9,23 +9,15 @@ Studio.addPropertiesComponent('chrome img', Properties, (entity) => entity.__ent
 Studio.addApiSpec({
   template: {
     chrome: {
-      scale: 1,
       displayHeaderFooter: false,
-      printBackground: false,
-      landscape: false,
-      pageRanges: '...',
-      format: '...',
-      width: '...',
-      height: '...',
-      marginTop: '...',
-      marginRight: '...',
-      marginBottom: '...',
-      marginLeft: '...',
-      mediaType: 'print|screen'
+      fullPage: true,
+      mediaType: 'print|screen',
+      omitBackground: false,
+      type: 'png|jpeg'
     }
   }
 })
 
 Studio.addEditorComponent(Constants.CHROME_TAB_EDITOR, ChromeEditor)
 Studio.addTabTitleComponent(Constants.CHROME_TAB_TITLE, ChromeTitle)
-Studio.entityTreeIconResolvers.push((entity) => (entity.__entitySet === 'templates' && entity.recipe === 'chrome-img') ? 'fa-file-pdf-o' : null)
+Studio.entityTreeIconResolvers.push((entity) => (entity.__entitySet === 'templates' && entity.recipe === 'chrome-img') ? 'fa-file-image-o' : null)
