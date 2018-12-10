@@ -11,9 +11,11 @@ Studio.addApiSpec({
     chrome: {
       displayHeaderFooter: false,
       fullPage: true,
+      height: '...',
       mediaType: 'print|screen',
       omitBackground: false,
-      type: 'png|jpeg'
+      type: 'png|jpeg',
+      width: '...'
     }
   }
 })

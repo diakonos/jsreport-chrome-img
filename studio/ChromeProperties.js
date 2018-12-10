@@ -111,6 +111,16 @@ export default class Properties extends Component {
             type='checkbox' checked={chrome.fullPage === true}
             onChange={(v) => changeChrome(this.props, { fullPage: v.target.checked })} />
         </div>
+        <div className='form-group'><label>width</label>
+          <input
+            type='text' placeholder='10cm' value={chrome.width || ''}
+            onChange={(v) => changeChrome(this.props, { width: v.target.value })} />
+        </div>
+        <div className='form-group'><label>height</label>
+          <input
+            type='text' placeholder='10cm' value={chrome.height || ''}
+            onChange={(v) => changeChrome(this.props, { height: v.target.value })} />
+        </div>
         <div className='form-group'>
           <label>display header/footer</label>
           <input
